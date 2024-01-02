@@ -1,13 +1,13 @@
 import React,{useState, useEffect} from "react";
 import axios from "axios";
-
-
+import {useNavigate} from "react-router-dom";
 
 
 const Home = (props) => {
-
+let navigate = useNavigate()
 
     const [url, setUrl] = useState('https://api.jikan.moe/v4/anime');
+
     const [animes, setAnime] = useState([]);
 
     useEffect(() => {
@@ -39,8 +39,8 @@ const Home = (props) => {
                     { animes ? (
 
                    animes.map((anime, index) => (
-                        <div className={'card col'} key={index}>
-                            <h2>{anime.title}</h2>
+                        <div className={'card col'} key={index} onClick={()=>navigate(`/${anime.mal_id}`)}>
+
                             <img src={`${anime.images.jpg.image_url}`} alt=""/>
                         </div>
                     ))
