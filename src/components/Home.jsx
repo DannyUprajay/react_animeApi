@@ -9,7 +9,8 @@ let navigate = useNavigate()
 
     const [url, setUrl] = useState('https://api.jikan.moe/v4/anime');
     const [animes, setAnime] = useState([]);
-    const [selectedGenre, setselectedGenre] = useState();
+    // const [selectedGenre, setselectedGenre] = useState();
+    const [search, setSearch] = useState("");
 
     const handleClick = (valeur) => {
         console.log("Valeur cliquée :", valeur);
@@ -30,6 +31,10 @@ let navigate = useNavigate()
         fetchData();
     }, []);
 
+
+    const searchAnime=()=>{
+        setUrl(`https://api.jikan.moe/v4/anime${search}`)
+    }
     return (
         <>
 
@@ -37,35 +42,28 @@ let navigate = useNavigate()
         <h1 className="text-3xl text-center font-bold ">
           Liste des mangas
         </h1>
-            <button onClick={() => handleClick('Action')}>Action</button>
 
-
+            <input type="text" placeholder="Search Marvel..." onChange={e=>setSearch(e.target.value)}
+                   onKeyPress={searchAnime}/>
 
             <section className={'flex items-center'}>
                 <div className={'grid grid-cols-4 lg:grid-cols-4 gap-2 md:grid-cols-1 container mx-auto'}>
 
-                    { animes ? (
-
-                   animes.map((anime, index) => (
-                        <div className={'card col'} key={index} onClick={()=>navigate(`/${anime.mal_id}`)}>
-
-                            <img className={'cursor-pointer'} src={`${anime.images.jpg.image_url}`} alt=""/>
-                            {anime.genres.map((genre,index)=> (
-                                <div>
+                    {animes.map((anime, index) => (
+                        <div className={'card col'} key={anime.mal_id} onClick={() => navigate(`/${anime.mal_id}`)}>
+                            <img className={'cursor-pointer'} src={`${anime.images.jpg.image_url}`} alt="" />
+                            {anime.genres.map((genre, index) => (
+                                <div key={index}>
                                     <h2>{genre.name}</h2>
                                     <p>{genre.type}</p>
                                 </div>
-
-                            ))
-                            }
+                            ))}
                         </div>
-                    ))
-                    ):''
-                    }
+                    ))}
                 </div>
             </section>
 
-        <MangaGenre/>
+        {/*<MangaGenre/>*/}
         </>
     )
 }
