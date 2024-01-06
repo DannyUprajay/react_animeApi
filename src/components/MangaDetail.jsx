@@ -23,16 +23,19 @@ const MangaDetail = () => {
 
     return (
         <>
+            <h3>dojkadi</h3>
             <h3>{animes.title}</h3>
-            <img src={`${animes?.images?.jpg?.image_url}`} alt=""/>
+            <p>{animes.members}</p>
+            <img src={animes?.images?.jpg?.image_url} alt=""/>
+            {/*<img src={`${animes?.images?.jpg?.image_url}`} alt=""/>*/}
 
-            {animes ? (
-                animes.genres?.map((genre, index) => (
-                <p key={index}>{genre.name}</p>
-            ))):''}
+            {/*{animes ? (*/}
+            {/*    animes.genres?.map((genre, index) => (*/}
+            {/*    <p key={index}>{genre.name}</p>*/}
+            {/*))):''}*/}
 
-            <p>{animes.synopsis}</p>
-            <video src={`${animes?.trailer?.embed_url}`}></video>
+            {/*<p>{animes.synopsis}</p>*/}
+            {/*<video src={`${animes?.trailer?.embed_url}`}></video>*/}
 
         </>
     );
