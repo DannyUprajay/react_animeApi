@@ -1,6 +1,8 @@
 import React, {useState, useEffect, useRef} from "react";
 import axios from "axios";
 import {useNavigate} from "react-router-dom";
+import TopAnime from "./TopAnime.jsx";
+
 
 const Home = (props) => {
     let navigate = useNavigate();
@@ -46,8 +48,13 @@ const Home = (props) => {
             </div>
 
             <section>
+                <h2>Populaire</h2>
+                <TopAnime/>
+            </section>
 
+            <section>
 
+    <h2>liste anime</h2>
                 {animes ?
                     animes.map((anime, index) => (
                         <div key={index} onClick={()=>navigate(`/${anime.mal_id}`)}>
