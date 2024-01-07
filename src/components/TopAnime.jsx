@@ -23,16 +23,20 @@ const TopAnime = () => {
 
     return (
         <>
+
+
+
+
             {topAnimes ?
                 topAnimes.map((topAnime) =>(
-                    <div key={topAnime.mal_id} onClick={()=>navigate(`/${topAnime.mal_id}`)}>
-
-                 <h2>{topAnime.title}</h2>
+                    <div className={'card'} key={topAnime.mal_id} onClick={()=>navigate(`/${topAnime.mal_id}`)}>
                         <img src={topAnime.images?.jpg?.image_url} alt=""/>
+                        <h2>{topAnime.title}</h2>
                     </div>
 
              )) : ''
             }
+
         </>
     )
 }

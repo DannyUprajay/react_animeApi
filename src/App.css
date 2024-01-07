@@ -1,0 +1,39 @@
+
+
+body{
+    background: #111;
+}
+
+
+header{
+
+    background-image: url("https://4kwallpapers.com/images/walls/thumbs_3t/10412.png");
+    background-size: cover;
+    width: 100%;
+    height: 50vh;
+    object-fit: cover;
+
+    div{
+        padding: 50px;
+        color: white;
+        font-weight: bold;
+    }
+
+}
+.listManga{
+
+    background: #101466;
+
+    .card{
+        text-align: center;
+        display: block;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        color: white;
+        img{
+            position: relative;
+            left: 20%;
+        }
+    }
+}

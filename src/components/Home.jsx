@@ -4,6 +4,7 @@ import {useNavigate} from "react-router-dom";
 import TopAnime from "./TopAnime.jsx";
 
 
+
 const Home = (props) => {
     let navigate = useNavigate();
 
@@ -35,9 +36,20 @@ const Home = (props) => {
         }
     };
 
+    let randomImage = Math.floor( 1 + (Math.random() * (20-1)));
+    console.log(randomImage);
 
     return (
         <>
+
+
+            <header className={'container mx-auto'}>
+                {/*<div style={{ backgroundImage: `url("${animes[randomImage]?.images?.jpg?.image_url}")` }}>*/}
+                {/*</div>*/}
+                <div className={''}>   Lové manga</div>
+            </header>
+
+
             <h1 className="text-3xl text-center font-bold ">
                 Liste des mangas
             </h1>
@@ -47,9 +59,11 @@ const Home = (props) => {
                 <button onClick={searchAnime}>Search</button>
             </div>
 
-            <section>
-                <h2>Populaire</h2>
+            <section className={'listManga container mx-auto'}>
+                <h2 className={'text-center'}>Populaire</h2>
+                <div className={'grid lg:grid-cols-4 gap-2 md:grid-cols-1 container mx-auto'}>
                 <TopAnime/>
+                </div>
             </section>
 
             <section>
