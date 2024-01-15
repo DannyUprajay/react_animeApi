@@ -1,9 +1,5 @@
 
 
-body{
-    background: #111;
-}
-
 
 header{
 
@@ -22,7 +18,6 @@ header{
 }
 .listManga{
 
-    background: #101466;
 
     .card{
         text-align: center;
@@ -30,10 +25,29 @@ header{
         justify-content: center;
         align-items: center;
         overflow: hidden;
-        color: white;
+        background: red;
+
+
         img{
             position: relative;
             left: 20%;
+        }
+    }
+}
+
+.mangaPopulaire {
+    .card{
+        text-align: center;
+        display: block;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        background: #ec34e5;
+
+
+        img{
+            position: relative;
+            left: 30%;
         }
     }
 }

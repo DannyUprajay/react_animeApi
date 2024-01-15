@@ -61,23 +61,25 @@ const Home = (props) => {
 
             <section className={'listManga container mx-auto'}>
                 <h2 className={'text-center'}>Populaire</h2>
-                <div className={'grid lg:grid-cols-4 gap-2 md:grid-cols-1 container mx-auto'}>
+                <div className={'grid lg:grid-cols-3 gap-2 md:grid-cols-1 container mx-auto'}>
                 <TopAnime/>
                 </div>
             </section>
 
-            <section>
+            <section className={'mangaPopulaire'}>
 
     <h2>liste anime</h2>
+                <div className={'grid lg:grid-cols-3 gap-2 md:grid-cols-1 container mx-auto'}>
                 {animes ?
                     animes.map((anime, index) => (
-                        <div key={index} onClick={()=>navigate(`/${anime.mal_id}`)}>
-                            <h2>{anime.title}</h2>
+                        <div className={'card'} key={index} onClick={()=>navigate(`/${anime.mal_id}`)}>
                             <img src={anime.images.jpg.image_url} alt=""/>
+                            <h2>{anime.title}</h2>
+
                         </div>
                     )) : <h2>{message}</h2>}
 
-
+                </div>
             </section>
         </>
     );
